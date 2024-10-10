@@ -61,7 +61,7 @@ function checkSequence(currentIndex) {
 }
 
 function gameOver() {
-  $("h1").text("Game Over! Press A Key to Restart");
+  $("h1").text("Game Over! Click here or press A Key to Restart");
   currentSequence = [];
   userSequence = [];
   level = 0;
@@ -76,5 +76,11 @@ $(document).on("keypress", function(e) {
     setTimeout(function () {
       $("h1").removeClass("shake");
     }, 250);
+  }
+});
+
+$("h1").on("click", function(e) {
+  if (this.id === "level-title" && level === 0) {
+    startGame();
   }
 });
